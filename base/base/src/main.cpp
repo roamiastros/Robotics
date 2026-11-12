@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
-/*    Author:       sami                                                      */
+/*    Authors:       sami, david                                              */
 /*    Created:      10/15/2026, 4:08:34 PM                                    */
 /*    Description:  V5 project                                                */
 /*                                                                            */
@@ -15,8 +15,8 @@ vex::brain   Brain;
 
 // define your global instances of motors and other devices here
 controller Controller = controller();
-motor MotorL = motor(1);
-motor MotorR = motor(2);
+motor MotorL = motor(0);
+motor MotorR = motor(10);
 
 int main() {
 
@@ -26,8 +26,9 @@ int main() {
         MotorL.setVelocity(Controller.Axis3.position()/2, percent);
         MotorR.setVelocity(Controller.Axis2.position()/2, percent);
         MotorL.spin(forward);
-        MotorR.spin(forward);
-
+        MotorR.spin(reverse);
+        Brain.Screen.print("WORKS");
+        
         wait(5, msec);
     }
 }
